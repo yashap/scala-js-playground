@@ -1,0 +1,27 @@
+# IDE / editor files
+*.iml
+.idea/
+.idea_modules
+.vscode/
+*.swp
+.vagrant
+
+# Ignore OSX stuff
+.DS_Store
+*/tags
+tags
+
+# Ignore generated stuff
+node_modules/
+logs/
+**/target/
+.classpath
+.project
+.settings
+RUNNING_PID
+akka-diagnostics/
+reports/
+.bloop/
+.metals/
+project/metals.sbt
+
