@@ -30,7 +30,17 @@ dev/build:
 .PHONY: dev/open
 ## Open the dev version of the web app
 dev/open:
-	open index.html
+	open dev.html
+
+.PHONY: prod/build
+## Build an optimized version of the JS bundle
+prod/build:
+	sbt fullOptJS
+
+.PHONY: prod/open
+## Open the optimized version of the web app
+prod/open:
+	open prod.html
 
 .PHONY: test
 ## Run the unit tests

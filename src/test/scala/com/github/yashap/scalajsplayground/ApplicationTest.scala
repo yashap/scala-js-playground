@@ -14,4 +14,19 @@ class ApplicationTest extends FlatSpec with Matchers {
     val paragraphs = dom.document.querySelectorAll("p")
     paragraphs.count(_.textContent == "Hello World") shouldBe 1
   }
+
+  "clicking the button" should "append a 'You clicked the button!' node" in {
+    def messageCount: Int =
+      dom.document.querySelectorAll("p").count(_.textContent == "You clicked the button!")
+
+    val button = dom.document.querySelector("button").asInstanceOf[dom.html.Button]
+    Option(button) shouldNot be(empty)
+    button.textContent shouldBe "Click me!"
+    messageCount shouldBe 0
+
+    (1 to 5).foreach { expectedCount =>
+      button.click()
+      messageCount shouldBe expectedCount
+    }
+  }
 }
