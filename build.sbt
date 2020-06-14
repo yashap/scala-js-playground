@@ -1,8 +1,9 @@
 enablePlugins(ScalaJSPlugin)
+enablePlugins(ScalaJSBundlerPlugin)
 
 name := "scala-js-playground"
 version := "0.1"
-scalaVersion := "2.13.2"
+scalaVersion := "2.12.11"
 
 libraryDependencies ++= Seq(
   "org.scala-js" %%% "scalajs-dom" % "1.0.0",
@@ -10,6 +11,10 @@ libraryDependencies ++= Seq(
   "org.scalatest" %%% "scalatest" % "3.1.2" % Test
 )
 
-jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv()
+npmDependencies in Test ++= Seq(
+  "canvas" -> "2.6.1"
+)
 
+requireJsDomEnv in Test := true
+useYarn := true
 scalaJSUseMainModuleInitializer := true

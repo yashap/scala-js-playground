@@ -4,7 +4,9 @@ Just me playing around with Scala.js
 
 ## Dependencies
 
-You'll need `sbt 1.x.x` installed to build this project.
+* `sbt 1.x.x`
+* Modern version of `yarn` (I'm using `1.22.4`)
+* Modern version of `node` and `npm` (I'm using `12.17.0` and `6.14.4`)
 
 ## Dev Workflow 
 

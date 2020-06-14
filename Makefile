@@ -22,10 +22,15 @@ help:
 	} \
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
+.PHONY: clean
+## Clean all build artifacts
+clean:
+	sbt clean
+
 .PHONY: dev/build
 ## Build (and watch, i.e. auto-rebuild on changes) a dev version of the JS bundle
 dev/build:
-	sbt ~fastOptJS
+	sbt ~fastOptJS::webpack
 
 .PHONY: dev/open
 ## Open the dev version of the web app
@@ -35,7 +40,7 @@ dev/open:
 .PHONY: prod/build
 ## Build an optimized version of the JS bundle
 prod/build:
-	sbt fullOptJS
+	sbt fullOptJS::webpack
 
 .PHONY: prod/open
 ## Open the optimized version of the web app

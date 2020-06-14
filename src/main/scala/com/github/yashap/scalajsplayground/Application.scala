@@ -1,5 +1,6 @@
 package com.github.yashap.scalajsplayground
 
+import com.github.yashap.scalajsplayground.flappybird.FlappyBird
 import org.scalajs.dom
 import org.scalajs.dom.html
 
@@ -18,9 +19,13 @@ object Application {
 
   def main(args: Array[String]): Unit = {
     val root = initFullScreenRoot()
-    val canvas = Canvas(width = root.clientWidth, height = root.clientHeight)
+    // val canvas = Canvas(width = root.clientWidth, height = root.clientHeight)
+    val canvas = Canvas(width = root.clientWidth, height = 400) // for FlappyBox
     root.appendChild(canvas)
+
     // SierpinskiTriangle.render(canvas)
-    Sketchpad.render(canvas)
+    // Sketchpad.render(canvas)
+    // Clock.render(canvas)
+    FlappyBird.render(canvas)
   }
 }
